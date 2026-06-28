@@ -1,0 +1,20 @@
+{
+  "name": "enterprise-task-manager",
+  "version": "1.0.0",
+  "description": "Production Ready Task Management API",
+  "keywords": [
+    "task-management",
+    "nodejs",
+    "express"
+  ],
+  "license": "ISC",
+  "author": "Hardik Misri",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
