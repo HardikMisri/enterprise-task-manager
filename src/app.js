@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from "./routes/auth.routes.js";
+import taskRoutes from "./routes/task.routes.js";
 const app = express();
 
 const PORT = 3000;
@@ -19,5 +20,6 @@ app.get("/healthy", (req,res)=>{
 
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/tasks", taskRoutes);
 
 export default app;
