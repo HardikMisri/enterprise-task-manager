@@ -16,12 +16,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      
-      - name: Display Commit SHA
-        run: echo "Commit SHA: ${{ github.sha }}"
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Display Commit SHA
+        run: echo "Commit SHA: ${{ github.sha }}"
 
       - name: Build Docker Image
         run: |
@@ -35,10 +35,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Push Docker Image
+      - name: Push Docker Images
         run: |
-           docker push ${{ secrets.DOCKER_USERNAME }}/enterprise-task-manager:latest
-           docker push ${{ seecrets.DOCKER_USERNAME }}/enterprise-task-manager:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/enterprise-task-manager:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/enterprise-task-manager:${{ github.sha }}
 
       - name: List Docker Images
         run: docker images
