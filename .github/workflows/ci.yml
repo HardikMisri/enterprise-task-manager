@@ -21,7 +21,8 @@ jobs:
         run: npm install
 
       - name: Display Commit SHA
-        run: echo "Commit SHA: ${{ github.sha }}"
+        run: |
+          echo "Commit SHA: ${{ github.sha }}"
 
       - name: Build Docker Image
         run: |
