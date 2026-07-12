@@ -9,7 +9,10 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Enterprise Task Manager 🚀");
+  res.send(`
+    <h2>Welcome to Enterprise Task Manager 🚀</h2>
+    <p>Served by: ${process.env.HOSTNAME}</p>
+  `);
 });
 
 

@@ -7,9 +7,9 @@ const startServer = async () => {
   await connectDB();
   await redisClient.connect();
 
-  await redisClient.set("name", "Hardik");
-  const value = await redisClient.get("name");
-  console.log("Redis Value",value);
+  // await redisClient.set("name", "Hardik");
+  // const value = await redisClient.get("name");
+  // console.log("Redis Value",value);
   
   
   app.listen(env.PORT || 3000, () => {
