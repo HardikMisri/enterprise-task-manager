@@ -16,8 +16,12 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/healthy", (req,res)=>{
-  res.send("Server is great")
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "UP",
+    service: "enterprise-task-manager",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 
