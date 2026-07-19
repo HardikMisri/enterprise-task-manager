@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: enterprise-config
+
+data:
+  PORT: "3000"
+  DB_USER: postgres
+  DB_HOST: postgres
+  DB_PORT: "5432"
+  DB_NAME: enterprise_task_manager
+
+  REDIS_HOSTNAME: redis
+  REDIS_PORT_NUMBER: "6379"

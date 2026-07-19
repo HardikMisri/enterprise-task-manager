@@ -26,10 +26,28 @@ spec:
 
           env:
             - name: POSTGRES_DB
-              value: enterprise_task_manager
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: DB_NAME
 
             - name: POSTGRES_USER
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: DB_USER
 
             - name: POSTGRES_PASSWORD
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: enterprise-secret
+                  key: POST_PASSWORD
+
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: postgres-pvc

@@ -24,21 +24,49 @@ spec:
 
           env:
             - name: DB_HOST
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: DB_HOST
 
             - name: DB_PORT
-              value: "5432"
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: DB_PORT
+
             - name: DB_NAME
-              value: enterprise_task_manager
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: DB_NAME
+
             - name: DB_USER
-              value: postgres
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: DB_USER
 
             - name: DB_PASSWORD
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: enterprise-secret
+                  key: DB_PASSWORD
 
             - name: REDIS_HOSTNAME
-              value: redis
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: REDIS_HOSTNAME
+
             - name: REDIS_PORT_NUMBER
-              value: "6379"
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: REDIS_PORT_NUMBER
+
             - name: PORT
-              value: "3000"
+              valueFrom:
+                configMapKeyRef:
+                  name: enterprise-config
+                  key: PORT
