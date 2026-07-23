@@ -16,11 +16,15 @@ app.get("/", (req, res) => {
 });
 
 
+// res.status(200).json({
+//     status: "DOWN",
+//     service: "enterprise-task-manager",
+//     timestamp: new Date().toISOString(),
+//   });
+
 app.get("/health", (req, res) => {
-  res.status(200).json({
-    status: "UP",
-    service: "enterprise-task-manager",
-    timestamp: new Date().toISOString(),
+  res.status(500).json({
+    status: "DOWN"
   });
 });
 
