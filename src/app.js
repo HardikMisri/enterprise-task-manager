@@ -23,8 +23,10 @@ app.get("/", (req, res) => {
 //   });
 
 app.get("/health", (req, res) => {
-  res.status(500).json({
-    status: "DOWN"
+  res.status(200).json({
+    status: "UP",
+    service: "enterprise-task-manager",
+    timestamp: new Date().toISOString(),
   });
 });
 
